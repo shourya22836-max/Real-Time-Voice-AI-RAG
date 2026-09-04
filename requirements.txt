@@ -1,0 +1,22 @@
+# Core dependencies
+python-dotenv>=1.0.0
+
+# LangGraph & LangChain
+langgraph>=0.2.0
+langchain-core>=0.3.0
+langchain-openai>=0.2.0
+langchain-community>=0.3.0
+langchain-text-splitters>=0.3.0
+langchain-chroma>=0.1.0
+
+# PDF processing
+pypdf>=4.0.0
+
+# LiveKit & Plugins
+livekit-agents>=1.0.0
+livekit-plugins-langchain>=0.1.0
+livekit-plugins-cartesia>=0.1.0
+livekit-plugins-deepgram>=0.1.0
+livekit-plugins-noise-cancellation>=0.1.0
+livekit-plugins-silero>=0.1.0
+livekit-plugins-bey>=0.1.0
