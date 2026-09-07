@@ -16,10 +16,20 @@ load_dotenv(".env.local")
 
 # -------------------- Build your Interview RAG pipeline --------------------
 def create_workflow():
-    llm = ChatOpenAI(model="gpt-4o", temperature=0.7)
-    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+    llm = ChatOpenAI(
+        model=os.getenv("OPENAI_MODEL", "openai/gpt-4o-mini"),
+        temperature=0.7,
+        openai_api_key=os.getenv("OPENROUTER_API_KEY"),
+        base_url="https://openrouter.ai/api/v1"
+    )
+    embeddings = OpenAIEmbeddings(
+        model="text-embedding-3-small",
+        openai_api_key=os.getenv("OPENROUTER_API_KEY"),
+        base_url="https://openrouter.ai/api/v1"
+    )
 
-    pdf_path = os.getenv("COMPANY_PDF_PATH", "./TechCompanyInfo.pdf")
+
+    pdf_path = os.getenv("COMPANY_PDF_PATH", "./company_info_text.pdf")
     if not os.path.exists(pdf_path):
         raise FileNotFoundError(f"PDF file not found: {pdf_path}. Please set COMPANY_PDF_PATH environment variable or place TechCompanyInfo.pdf in the current directory.")
 
